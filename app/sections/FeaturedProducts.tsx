@@ -1,13 +1,10 @@
 "use client"
 import React from 'react'
-import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import ProductCard from '../components/ProductCard'
 
 export default function FeaturedProducts() {
     
-    const search = useSearchParams()
-    console.log(search);
     
 
   return (
