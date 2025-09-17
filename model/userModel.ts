@@ -4,7 +4,8 @@ import mongoose,{Schema, Document} from "mongoose";
 interface userInterface extends Document{
     username : string,
     email : string,
-    password : string
+    password : string,
+    role : string
 }
 
 
@@ -23,6 +24,10 @@ const userSchema = new Schema<userInterface>({
         type : String,
         required : true,
         minLength : [6, 'must be 6 letters']
+    },
+    role : {
+        type : String,
+        default : 'user'
     }
 },{timestamps : true})
 

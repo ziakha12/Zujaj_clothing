@@ -2,7 +2,7 @@ import Jwt, { JwtPayload } from 'jsonwebtoken'
 import { NextRequest, NextResponse } from 'next/server'
 
 
-export async function getDateFromToken(req : NextRequest) {
+export async function getDataFromToken(req : NextRequest) {
     try {
         const token : string = req.cookies.get('token')?.value!;
 

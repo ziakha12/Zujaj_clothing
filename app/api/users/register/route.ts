@@ -9,6 +9,8 @@ export async function POST(req: NextRequest) {
     try {
         const formData = await req.formData()
 
+        console.log(formData)
+
         if (!formData) return NextResponse.json({ error: 'form data not found', success: false }, { status: 401 })
 
         const username = formData.get('username') as String
@@ -23,7 +25,7 @@ export async function POST(req: NextRequest) {
 
         if (existedUser) return NextResponse.json({ error: 'user with same email or username is already exist', success: false }, { status: 409})
 
-        const hashedPassword = bcrypt.hash(password as string, 10)
+        const hashedPassword = await bcrypt.hash(password as string, 10)
 
         if (!hashedPassword) return NextResponse.json({ error: 'password encryption is failed', success: false }, { status: 401 })
 
