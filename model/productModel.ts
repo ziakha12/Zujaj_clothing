@@ -2,7 +2,7 @@ import mongoose, { Schema, Document } from "mongoose";
 
 interface variantType extends Document {
     color: string,
-    colorImage: string,
+    colorImage? : string,
     colorName: string,
 
 }
@@ -61,6 +61,6 @@ const productSchema = new Schema<productType>({
 }, { timestamps: true })
 
 
-const Product = mongoose.models.products || mongoose.model<productType>("Product", productSchema)
+const Product = mongoose.models.Product || mongoose.model<productType>("Product", productSchema)
 
 export default Product;

@@ -33,6 +33,6 @@ const userSchema = new Schema<userInterface>({
 
 
 
-const User = mongoose.models.users || mongoose.model<userInterface>('User', userSchema)
+const User = mongoose.models.Users || mongoose.model<userInterface>('User', userSchema)
 
 export default User

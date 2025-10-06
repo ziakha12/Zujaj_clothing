@@ -4,6 +4,8 @@ import User from "@/model/userModel";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
+await dbConnect()
+
 
 export async function POST(req: NextRequest) {
     try {
@@ -13,6 +15,8 @@ export async function POST(req: NextRequest) {
 
         const email = formData.get('email') as String
         const password = formData.get('password') as String
+
+        console.log(email)
 
         if (!email || !password) return NextResponse.json({ error: 'all feilds are required', success: false }, { status: 401 })
 
@@ -37,7 +41,8 @@ export async function POST(req: NextRequest) {
            const response =  NextResponse.json({
             message : 'user logged in successfully',
             success : true
-        })
+        },
+    {status : 200})
 
         response.cookies.set('token', token, { httpOnly : true})
 
